@@ -1,0 +1,46 @@
+.navbar-div {
+    width: auto;
+    height: auto;
+    position: fixed;
+    top: 0; /* Fix the navbar at the top of the viewport */
+    z-index: 999; /* Ensure the navbar appears above other content */
+}
+
+.menu-page-div {
+    width: 100%;
+    display: grid;
+    background-color: skyblue;
+    grid-template-columns: 9rem 1.5fr 2.5fr 9rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    padding-top: 5rem; /* Ensure space for the fixed navbar */
+    overflow-y: hidden; /* Hide the vertical scrollbar */
+}
+
+.slide-images-div {
+    display: flex;
+    background-color: transparent;
+    grid-column: 2/4;
+    justify-content: start;
+    align-items: center;
+    height: 40rem; /* Set the height of the logo */
+    text-align: center;
+    margin-top: 10rem;
+}
+
+.item-contents {
+    background-color: transparent;
+    margin: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 100%;
+    grid-column: 2/4;
+}
+
+.info {
+    background-color: transparent;
+    margin: 10rem;
+    display: grid;
+
+    height: 100%;
+    grid-column: 2/4;
+}
