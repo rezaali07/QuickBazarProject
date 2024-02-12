@@ -1,0 +1,2 @@
+# QuickBazarProject
+individual project
