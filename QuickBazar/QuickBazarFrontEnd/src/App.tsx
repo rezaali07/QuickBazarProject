@@ -12,6 +12,7 @@ import ManageCategory from "./pages/admin/ManageCategory.tsx";
 import EditCategory from "./pages/admin/editCategory.tsx";
 import ManageSubCategory from "./pages/admin/ManageSubCategory.tsx";
 import ManageProduct from "./pages/admin/ManageProduct.tsx";
+import PostProduct from "./pages/PostProduct.tsx";
 
 function App() {
     const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ function App() {
                     <Route path="/editCategory" element={<EditCategory />} />
                     <Route path="/manageSubCategory" element={<ManageSubCategory />} />
                     <Route path="/manageProduct" element={<ManageProduct />} />
+                    <Route path="/postProduct" element={<PostProduct />} />
                 </Routes>
             </BrowserRouter>
         </QueryClientProvider>

@@ -1,6 +1,7 @@
 package com.example.quickbazar.Controller;
 
 import com.example.quickbazar.Entity.Product;
+import com.example.quickbazar.Entity.SubCategory;
 import com.example.quickbazar.Pojo.ProductPojo;
 import com.example.quickbazar.Service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
@@ -28,16 +30,16 @@ public class ProductController {
         return productService.findAll();
     }
 
+
     @GetMapping("/findById/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable Integer id) {
-        return productService.getProductById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public Optional<Product> getById(@PathVariable("id") Integer id){
+        return this.productService.findById(id);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteProductById(@PathVariable Integer id) {
-        productService.deleteProductById(id);
-        return ResponseEntity.ok("Product deleted successfully.");
+    public void deleteById(@PathVariable("id") Integer id){
+        this.productService.deleteById(id);
     }
+
+
 }

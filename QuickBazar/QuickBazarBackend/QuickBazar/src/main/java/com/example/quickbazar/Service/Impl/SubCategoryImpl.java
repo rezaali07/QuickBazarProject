@@ -49,12 +49,12 @@ public class SubCategoryImpl implements SubCategoryService {
     }
 
     @Override
-    public Optional<SubCategory> getSubCategoryById(Integer id) {
+    public Optional<SubCategory> findById(Integer id) {
         return subCategoryRepo.findById(id);
     }
 
     @Override
-    public void deleteSubCategoryById(Integer id) {
+    public void deleteById(Integer id) {
         subCategoryRepo.deleteById(id);
     }
 }

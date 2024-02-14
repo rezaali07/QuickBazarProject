@@ -16,7 +16,7 @@ public class ProductPojo {
     private Integer id;
 
     @NotNull
-    private String subCategoryId;
+    private Integer subCategoryId;
 
     @NotNull
     private Integer categoryId;
@@ -39,7 +39,7 @@ public class ProductPojo {
     @NotNull
     private String productDiscription;
 
-    private String productImage;
+    private String productImage; //
 
 
 }

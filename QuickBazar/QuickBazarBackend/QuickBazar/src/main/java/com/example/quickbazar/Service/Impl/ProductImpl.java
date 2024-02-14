@@ -49,8 +49,8 @@ public class ProductImpl implements ProductService {
         Category category = categoryRepo.findById(productPojo.getCategoryId())
                 .orElseThrow(() -> new IllegalArgumentException("Category not found with ID: " + productPojo.getCategoryId()));
 
-        SubCategory subCategory = subCategoryRepo.findById(Integer.valueOf(productPojo.getSubCategoryId()))
-                .orElseThrow(() -> new IllegalArgumentException("Sub-Category not found with ID: " + productPojo.getSubCategoryId()));
+        SubCategory subCategory = subCategoryRepo.findById(productPojo.getSubCategoryId())
+                .orElseThrow(() -> new IllegalArgumentException("sub-Category not found with ID: " + productPojo.getSubCategoryId()));
 
         if (productPojo.getProductImage() != null) {
             Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, productPojo.getProductImage());
@@ -59,7 +59,7 @@ public class ProductImpl implements ProductService {
         product.setProductImage(productPojo.getProductImage());
 
         product.setCategory(category);
-        product.setSubCategory(subCategory.getCategory());
+        product.setSubCategory(subCategory);
         productRepo.save(product);
     }
 
@@ -68,18 +68,14 @@ public class ProductImpl implements ProductService {
         return productRepo.findAll();
     }
 
+
     @Override
-    public Optional<Product> getSubCategoryById(Integer id) {
+    public Optional<Product> findById(Integer id) {
         return productRepo.findById(id);
     }
 
     @Override
-    public Optional<Product> getProductById(Integer id) {
-        return productRepo.findById(id);
-    }
-
-    @Override
-    public void deleteProductById(Integer id) {
+    public void deleteById(Integer id) {
         productRepo.deleteById(id);
     }
 }

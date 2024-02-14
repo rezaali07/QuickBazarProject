@@ -25,7 +25,8 @@ const ManageProduct: React.FC = () =>  {
     const filteredPRODUCTData = data?.data.filter((product) =>
         product.productName.toLowerCase().includes(search.toLowerCase()) ||
         product.id.toString().includes(search.toLowerCase()) ||
-        product.category?.name.toLowerCase().includes(search.toLowerCase())
+        product.category?.name.toLowerCase().includes(search.toLowerCase()) ||
+        product.subCategory?.subCategoryName.toLowerCase().includes(search.toLowerCase())
     );
 
     //Deleting data
@@ -76,6 +77,7 @@ const ManageProduct: React.FC = () =>  {
                                         <tr>
                                             <th className={"id-box3"}>Id</th>
                                             <th className={"category-box3"}>Category</th>
+                                            <th className={"category-box3"}>subCategory</th>
                                             <th className={"name-box3"}>Name</th>
                                             <th className={"brand-box3"}>Brand</th>
                                             <th className={"condition-box3"}>Condition</th>
@@ -93,6 +95,7 @@ const ManageProduct: React.FC = () =>  {
                                                 <tr key={i?.id}>
                                                     <td>{i?.id}</td>
                                                     <td>{i?.category?.name} </td>
+                                                    <td>{i?.subCategory?.subCategoryName} </td>
                                                     <td>{i?.productName}</td>
                                                     <td>{i?.productBrand}</td>
                                                     <td>{i?.productCondition}</td>

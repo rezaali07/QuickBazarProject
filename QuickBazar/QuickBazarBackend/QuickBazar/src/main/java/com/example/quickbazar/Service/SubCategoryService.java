@@ -1,6 +1,7 @@
 package com.example.quickbazar.Service;
 
 
+import com.example.quickbazar.Entity.Category;
 import com.example.quickbazar.Entity.SubCategory;
 import com.example.quickbazar.Pojo.SubCategoryPojo;
 
@@ -14,7 +15,7 @@ public interface SubCategoryService {
 
     List<SubCategory> findAll();
 
-    Optional<SubCategory> getSubCategoryById(Integer id);
+    Optional<SubCategory> findById(Integer id);
 
-    void deleteSubCategoryById(Integer id);
+    void deleteById(Integer id);
 }

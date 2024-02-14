@@ -31,9 +31,11 @@ const Navbar: React.FC = () => {
                         </div>
                     </li>
                     <li className={"post-button"}>
-                        <button>
-                            <span> <IoIosAddCircle /> </span> Post for free
-                        </button>
+                        <Link to={"/postProduct"}>
+                            <button>
+                                <span> <IoIosAddCircle /> </span> Post for free
+                            </button>
+                        </Link>
                     </li>
                 </ul>
             </div>

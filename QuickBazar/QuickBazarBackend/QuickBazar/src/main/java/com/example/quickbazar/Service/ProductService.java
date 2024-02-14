@@ -15,9 +15,8 @@ public interface ProductService {
 
     List<Product> findAll();
 
-    Optional<Product> getSubCategoryById(Integer id);
 
-    Optional<Product> getProductById(Integer id);
+    Optional<Product> findById(Integer id);
 
-    void deleteProductById(Integer id);
+    void deleteById(Integer id);
 }

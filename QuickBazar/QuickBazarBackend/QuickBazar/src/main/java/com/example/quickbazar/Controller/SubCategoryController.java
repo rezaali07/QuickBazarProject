@@ -1,5 +1,6 @@
 package com.example.quickbazar.Controller;
 
+import com.example.quickbazar.Entity.Category;
 import com.example.quickbazar.Entity.SubCategory;
 import com.example.quickbazar.Pojo.SubCategoryPojo;
 import com.example.quickbazar.Service.SubCategoryService;
@@ -23,18 +24,23 @@ public class SubCategoryController {
         return "Saved successfully";
     }
 
+
     @GetMapping("/findAll")
-    public List<SubCategory> findAll() {
-        return subCategoryService.findAll();
+    public List<SubCategory> getAll(){
+        return this.subCategoryService.findAll();
     }
 
+
+
     @GetMapping("/findById/{id}")
-    public Optional<SubCategory> getItemById(@PathVariable("id") Integer id) {
-        return subCategoryService.getSubCategoryById(id);
+    public Optional<SubCategory> getById(@PathVariable("id") Integer id){
+        return this.subCategoryService.findById(id);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteSubCategoryById(@PathVariable("id") Integer id) {
-        subCategoryService.deleteSubCategoryById(id);
+    public void deleteById(@PathVariable("id") Integer id){
+        this.subCategoryService.deleteById(id);
     }
+
+
 }
