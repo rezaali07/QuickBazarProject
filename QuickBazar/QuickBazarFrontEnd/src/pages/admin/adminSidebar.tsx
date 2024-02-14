@@ -9,6 +9,7 @@ import "../../css/adminSidebar.css";
 
 
 
+
 const AdminSidebar: React.FC = () => {
     return (
         <div className="admin-sidebar">
@@ -50,11 +51,26 @@ const AdminSidebar: React.FC = () => {
                         </li>
                     </Link>
 
-                    <Link to="/manage-items">
+                    <Link to="/ManageSubCategory">
                         <li className="sidebar-list-item">
-                            <a href="/">Manage items</a>
+                            <span>
+                                <BiSolidCategoryAlt style={{ fontSize: "18px", marginBottom: "-3px" }} />
+                            </span>
+
+                            <a href="/">Manage Sub-Category</a>
                         </li>
                     </Link>
+
+                    <Link to="/ManageProduct">
+                        <li className="sidebar-list-item">
+                            <span>
+                                <BiSolidCategoryAlt style={{ fontSize: "18px", marginBottom: "-3px" }} />
+                            </span>
+
+                            <a href="/">Manage Product</a>
+                        </li>
+                    </Link>
+
                 </ul>
             </div>
 

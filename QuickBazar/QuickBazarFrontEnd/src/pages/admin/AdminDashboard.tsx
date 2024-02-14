@@ -3,7 +3,6 @@ import {FaUserCog} from "react-icons/fa";
 import AdminSidebar from "./adminSidebar.tsx";
 import {Link} from "react-router-dom";
 import {BiSolidCategoryAlt} from "react-icons/bi";
-import {FaBowlFood} from "react-icons/fa6";
 import {GoHomeFill} from "react-icons/go";
 
 
@@ -49,13 +48,23 @@ function AdminDashboard(){
                                         <span><BiSolidCategoryAlt style={{fontSize:"4vw",marginBottom:"-3px"}}/></span>
                                     </div>
                                 </Link>
-                                <Link to={"/ManageItem"}>
+                                <Link to={"/ManageSubCategory"}>
                                     <div className={"dashboard-cards"}>
                                         <div className={"d-card=left"}>
-                                            <h2>Items</h2>
+                                            <h2>SubCategory</h2>
 
                                         </div>
-                                        <span><FaBowlFood style={{fontSize:"3.8vw",marginBottom:"-3px"}}/></span>
+                                        <span><BiSolidCategoryAlt style={{fontSize:"3.8vw",marginBottom:"-3px"}}/></span>
+                                    </div>
+                                </Link>
+
+                                <Link to={"/ManageProduct"}>
+                                    <div className={"dashboard-cards"}>
+                                        <div className={"d-card=left"}>
+                                            <h2>All Product</h2>
+
+                                        </div>
+                                        <span><BiSolidCategoryAlt style={{fontSize:"3.8vw",marginBottom:"-3px"}}/></span>
                                     </div>
                                 </Link>
 

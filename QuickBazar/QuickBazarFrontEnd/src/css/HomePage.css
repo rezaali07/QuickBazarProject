@@ -1,46 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
 .navbar-div {
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 60px;
     position: fixed;
-    top: 0; /* Fix the navbar at the top of the viewport */
-    z-index: 999; /* Ensure the navbar appears above other content */
+    top: 0;
+    background-color: #333;
+    z-index: 999;
 }
 
 .menu-page-div {
+    background: #f6f4ef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 60px;
+    min-height: 100vh;
     width: 100%;
-    display: grid;
-    background-color: skyblue;
-    grid-template-columns: 9rem 1.5fr 2.5fr 9rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    padding-top: 5rem; /* Ensure space for the fixed navbar */
-    overflow-y: hidden; /* Hide the vertical scrollbar */
 }
 
 .slide-images-div {
     display: flex;
-    background-color: transparent;
-    grid-column: 2/4;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    height: 40rem; /* Set the height of the logo */
-    text-align: center;
-    margin-top: 10rem;
+    min-height: 400px;
+    width: 180rem;
+    margin-top: 1rem;
 }
 
 .item-contents {
-    background-color: transparent;
-    margin: 5rem;
+    margin: 10px;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    height: 100%;
-    grid-column: 2/4;
+    min-height: 400px;
+    width: 170rem;
 }
 
 .info {
-    background-color: transparent;
-    margin: 10rem;
-    display: grid;
-
-    height: 100%;
-    grid-column: 2/4;
+    margin: 20px;
+    min-height: 400px;
 }
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    .slide-images-div {
+        min-height: 300px;
+    }
+
+    .item-contents {
+        grid-template-columns: 1fr; /* Change to single column layout */
+    }
+}
+

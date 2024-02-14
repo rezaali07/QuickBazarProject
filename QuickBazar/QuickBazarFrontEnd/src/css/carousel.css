@@ -1,6 +1,6 @@
 .carousel-container {
     position: relative;
-    width: 100%; /* Match the width of the carousel container to the image width */
+    width: 198rem; /* Match the width of the carousel container to the image width */
     overflow: hidden; /* Hide overflow */
     display: flex;
     justify-content: center;
@@ -34,14 +34,20 @@
     cursor: pointer;
     font-size: 2rem; /* Adjust arrow size */
     z-index: 1; /* Ensure buttons appear above the images */
+
 }
 
-.carousel button.prev {
+.carousel-container button.prev {
     left: 0;
+    width: 5rem;
+    height: 5rem;
+
 }
 
-.carousel button.next {
+.carousel-container button.next {
     right: 0;
+    width: 5rem;
+    height: 5rem;
 }
 
 .dots {

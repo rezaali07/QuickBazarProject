@@ -22,21 +22,29 @@ const HomePage: React.FC = () => {
 
             <div className={"menu-page-div"}>
 
-                <div className={"slide-images-div"}>
-                    <Carousel images={images}/>
+
+                <div className={"d-main-content"}>
+
+                    <div className={"slide-images-div"}>
+                        <Carousel images={images}/>
+                    </div>
+
+                    <div className={"item-contents"}>
+                        <CategoryList/>
+                        <ItemList/>
+
+                    </div>
+                    <div className={"info"}>
+                        <h1>
+                            Buy And Sell Any Things
+                        </h1>
+
+                    </div>
+
                 </div>
 
-                <div className={"item-contents"}>
-                    <CategoryList/>
-                    <ItemList/>
 
-                </div>
-                <div className={"info"}>
-                    <h1>
-                        Buy And Sell Any Things
-                    </h1>
 
-                </div>
 
             </div>
         </>
