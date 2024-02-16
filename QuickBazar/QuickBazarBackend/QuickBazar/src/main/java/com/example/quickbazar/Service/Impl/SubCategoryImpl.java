@@ -1,6 +1,7 @@
 package com.example.quickbazar.Service.Impl;
 
 import com.example.quickbazar.Entity.Category;
+import com.example.quickbazar.Entity.Product;
 import com.example.quickbazar.Entity.SubCategory;
 import com.example.quickbazar.Pojo.SubCategoryPojo;
 import com.example.quickbazar.Repo.CategoryRepo;
@@ -56,5 +57,10 @@ public class SubCategoryImpl implements SubCategoryService {
     @Override
     public void deleteById(Integer id) {
         subCategoryRepo.deleteById(id);
+    }
+
+    @Override
+    public List<SubCategory> findByCategoryId(Integer categoryId) {
+        return subCategoryRepo.findByCategoryId(categoryId);
     }
 }

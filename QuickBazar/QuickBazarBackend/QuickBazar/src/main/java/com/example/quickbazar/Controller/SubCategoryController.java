@@ -1,6 +1,7 @@
 package com.example.quickbazar.Controller;
 
 import com.example.quickbazar.Entity.Category;
+import com.example.quickbazar.Entity.Product;
 import com.example.quickbazar.Entity.SubCategory;
 import com.example.quickbazar.Pojo.SubCategoryPojo;
 import com.example.quickbazar.Service.SubCategoryService;
@@ -40,6 +41,11 @@ public class SubCategoryController {
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable("id") Integer id){
         this.subCategoryService.deleteById(id);
+    }
+
+    @GetMapping("/findByCategoryId/{id}") // Change the mapping to avoid conflict
+    public List<SubCategory> findByCategoryId(@PathVariable("id") Integer id) {
+        return subCategoryService.findByCategoryId(id);
     }
 
 

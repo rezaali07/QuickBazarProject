@@ -19,4 +19,10 @@ public interface ProductService {
     Optional<Product> findById(Integer id);
 
     void deleteById(Integer id);
+
+    List<Product> findByCategoryId(Integer categoryId);
+
+    List<Product> findBySubCategoryId(Integer subCategoryId);
+
+
 }

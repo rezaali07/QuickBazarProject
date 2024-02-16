@@ -78,4 +78,16 @@ public class ProductImpl implements ProductService {
     public void deleteById(Integer id) {
         productRepo.deleteById(id);
     }
+
+    @Override
+    public List<Product> findByCategoryId(Integer categoryId) {
+        return productRepo.findByCategoryId(categoryId);
+    }
+
+    @Override
+    public List<Product> findBySubCategoryId(Integer subCategoryId) {
+        return productRepo.findBySubCategoryId(subCategoryId);
+    }
+
+
 }

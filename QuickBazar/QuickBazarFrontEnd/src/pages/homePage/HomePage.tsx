@@ -3,7 +3,7 @@ import Navbar from "../navbar/Navbar.tsx";
 import "../../css/HomePage.css"
 import Carousel from "../../decoretor/Carousel.tsx";
 import CategoryList from "./CategoryList.tsx";
-import ItemList from "./ItemList.tsx";
+import ProductList from "./ProductList.tsx";
 
 
 const images = [
@@ -31,7 +31,7 @@ const HomePage: React.FC = () => {
 
                     <div className={"item-contents"}>
                         <CategoryList/>
-                        <ItemList/>
+
 
                     </div>
                     <div className={"info"}>

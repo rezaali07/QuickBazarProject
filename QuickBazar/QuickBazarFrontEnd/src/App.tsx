@@ -13,6 +13,7 @@ import EditCategory from "./pages/admin/editCategory.tsx";
 import ManageSubCategory from "./pages/admin/ManageSubCategory.tsx";
 import ManageProduct from "./pages/admin/ManageProduct.tsx";
 import PostProduct from "./pages/PostProduct.tsx";
+import ProductCard from "./pages/homePage/ProductCard.tsx";
 
 function App() {
     const queryClient = new QueryClient();
@@ -34,6 +35,9 @@ function App() {
                     <Route path="/manageSubCategory" element={<ManageSubCategory />} />
                     <Route path="/manageProduct" element={<ManageProduct />} />
                     <Route path="/postProduct" element={<PostProduct />} />
+                    {/*<Route path="/productCard" element={<ProductCard productId={23} />} />*/}
+
+
                 </Routes>
             </BrowserRouter>
         </QueryClientProvider>
