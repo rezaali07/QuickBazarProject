@@ -2,7 +2,9 @@ package com.example.quickbazar.Service;
 
 
 import com.example.quickbazar.Entity.Product;
+import com.example.quickbazar.Entity.User;
 import com.example.quickbazar.Pojo.ProductPojo;
+import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.IOException;
@@ -23,6 +25,8 @@ public interface ProductService {
     List<Product> findByCategoryId(Integer categoryId);
 
     List<Product> findBySubCategoryId(Integer subCategoryId);
+
+    List<Product> findByUserId(User userId);
 
 
 }

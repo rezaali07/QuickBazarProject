@@ -11,7 +11,7 @@ interface Product {
     productCondition: string;
     price: string;
     address: string;
-    productDescription: string;
+    productDiscription: string;
     phone: string;
     productImage: string;
 }
@@ -28,10 +28,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ productId, userId }) => {
         const fetchProduct = async () => {
             try {
                 const response = await axios.get(`http://localhost:8082/product/findById/${productId}`, {
+
                     headers: {
-                        Authorization: `Bearer ${userId}`
+                        Authorization: `Bearer ${userId}` // Include userId in headers
                     }
                 });
+                localStorage.setItem("token","login-token");
                 setProduct(response.data);
             } catch (error) {
                 console.error('Error fetching product:', error);
@@ -41,44 +43,25 @@ const ProductCard: React.FC<ProductCardProps> = ({ productId, userId }) => {
         fetchProduct();
     }, [productId, userId]);
 
-    const handleDelete = async () => {
-        // Show confirmation dialog
-        const confirmed = window.confirm('Are you sure you want to delete this product?');
-
-        // If user confirms deletion
-        if (confirmed) {
-            try {
-                await axios.delete(`http://localhost:8082/product/delete/${productId}`, {
-                    headers: {
-                        Authorization: `Bearer ${userId}`
-                    }
-                });
-                // Optionally, you can update the UI after successful deletion
-                setProduct(null);
-            } catch (error) {
-                console.error('Error deleting product:', error);
-            }
-        }
-    };
-
-
     if (!product) {
-        return null; // If the product is deleted or not found, don't render anything
+        return <div>Loading...</div>;
     }
+
+    console.log(product.productImage);
 
     return (
         <div className="product-card">
             <h2>Name: {product.productName}</h2>
             <p>Brand: {product.productBrand}</p>
             <p>Condition: {product.productCondition}</p>
-            <p>Description: {product.productDescription}</p>
-            <p>Phone: {product.phone}</p>
+            <p>Description: {product.productDiscription}</p> {/* Fixed typo here */}
+            <p>Phone: {product.phone}</p> {/* Fixed typo here */}
             <p>Address: {product.address}</p>
             <p>Price: Rs.{product.price}</p>
+
             <div className="image-new">
-                <img src={'data:image/jpeg;base64,' + product.productImage} width={"320px"} alt={product.productName} />
+                <p><img src={'data:image/jpeg;base64,' + product.productImage} width={"320px"} alt={product.productName} /></p>
             </div>
-            <button onClick={handleDelete}>Delete</button> {/* Add delete button with onClick handler */}
         </div>
     );
 };

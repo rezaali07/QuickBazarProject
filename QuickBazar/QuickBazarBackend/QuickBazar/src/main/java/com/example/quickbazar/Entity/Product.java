@@ -2,6 +2,7 @@ package com.example.quickbazar.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "product")
@@ -17,6 +18,10 @@ public class Product {
     @GeneratedValue(generator = "item_seq_gen", strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User userId;
 
 
     @ManyToOne
@@ -46,9 +51,11 @@ public class Product {
     @Column(name = "product_discription", nullable = false)
     private String productDiscription;
 
+    @Column(name = "phone", nullable = false)
+    private String phone;
+
     @Column(name = "product_image")
     private String productImage;
-
 
 
 }

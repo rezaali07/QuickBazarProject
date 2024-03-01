@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -38,15 +38,41 @@ const PostProduct: React.FC = () => {
         queryFn: () => axios.get("http://localhost:8082/subCategory/findAll"),
     });
 
-    const onSubmit = async (data: any) => {
-        try {
-            await useApiCall.mutateAsync(data);
-
-        } catch (error) {
-            console.error("Error:", error);
-        }
-
+    // Function to get userId from local storage
+    const getUserIdFromLocalStorage = () => {
+        const userId = localStorage.getItem('userId');
+        return userId;
     };
+
+    useEffect(() => {
+        // Fetch userId from local storage
+        const userId = getUserIdFromLocalStorage();
+        if (userId) {
+            // You may want to do something with the userId here
+            console.log('UserId fetched from local storage:', userId);
+        } else {
+            console.log('UserId not found in local storage');
+        }
+    }, []); // Empty dependency array ensures this effect runs only once during component initialization
+
+    const onSubmit = (value: any) => {
+        const uid = getUserIdFromLocalStorage();
+        console.log('I am sending UID:', uid);
+        console.log(value);
+        const fd = new FormData();
+        fd.append("userId", uid);
+        fd.append("productName", value?.productName);
+        fd.append("productBrand", value?.productBrand);
+        fd.append("price", value?.price);
+        fd.append("address", value?.address);
+        fd.append("categoryId", value?.categoryId);
+        fd.append("subCategoryId", value?.subCategoryId);
+        fd.append("productCondition", value?.productCondition);
+        fd.append("productDiscription", value?.productDiscription);
+        fd.append("phone", value?.phone);
+        fd.append("productImage", value?.productImage[0]);
+        useApiCall.mutate(fd);
+    }
 
     return (
         <>
@@ -109,6 +135,16 @@ const PostProduct: React.FC = () => {
                         <div className="input-group">
                             <input type="text" placeholder="Product Description" {...register("productDiscription", { required: "Product Description is required!" })} />
                         </div>
+
+                        <div className="input-group">
+                            <input type="text" placeholder="Phone" {...register("phone", { required: "Phone number is required!" })} />
+                        </div>
+
+                        <div className="input-group">
+                            <input type="file" placeholder="Add Image" {...register("productImage", { required: "Product image is required!" })} />
+                        </div>
+
+
                     </div>
                     <div className="submit-btn">
                         <button type="submit">Post</button>

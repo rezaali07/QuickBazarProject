@@ -85,7 +85,7 @@ const RegistrationPage: React.FC = () => {
                                 <input
                                     type="text"
                                     name="securityQuestion"
-                                    placeholder="Your Favorite Bank Account Number"
+                                    placeholder="Your Favorite Bank Account Name"
                                     value={formData.securityQuestion}
                                     onChange={handleChange}
                                     required

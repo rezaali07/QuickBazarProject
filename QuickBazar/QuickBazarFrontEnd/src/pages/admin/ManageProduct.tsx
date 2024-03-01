@@ -102,7 +102,12 @@ const ManageProduct: React.FC = () =>  {
                                                     <td>{i?.price}</td>
                                                     <td>{i?.address}</td>
                                                     <td>{i?.productDiscription}</td>
-                                                    <td>{i?.productImage}</td>
+                                                    {/*<td>{i?.productImage}</td>*/}
+
+                                                    <td style={{display:"flex",justifyContent:"center"}}>
+                                                        <img src={'data:image/jpeg;base64,'+i?.productImage} width={"40px"}/>
+                                                    </td>
+
                                                     <td>
                                                         <button className={"delete-btn3"} onClick={() => {
                                                             if (window.confirm("Are you sure you want to delete this product?")) {

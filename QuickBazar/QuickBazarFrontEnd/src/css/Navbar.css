@@ -174,7 +174,7 @@ button{
     font-size: 1rem;
     border-radius: 6px;
     height: 4rem;
-    width: 7rem;
+    width: 10rem;
 
 }
 
@@ -205,6 +205,15 @@ button{
     .login-register .separate-line {
         display: none; /* Hide the separate line on smaller screens */
     }
+}
+
+.btnn{
+    width: 1rem;
+    height: 4rem;
+}
+
+.popup{
+    margin-left: -140rem;
 }
 
 

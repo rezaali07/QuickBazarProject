@@ -4,13 +4,15 @@ import "../css/login.css";
 import Navbar from "./navbar/Navbar.tsx";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
     const [formData, setFormData] = useState({
         email: "",
         password: ""
     });
+
+    const navigation = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -23,7 +25,13 @@ const Login: React.FC = () => {
             const response = await axios.post("http://localhost:8082/register/login", formData);
             console.log(response.data); // Handle successful login response
             alert("Login successful!");
-            // Redirect or perform other actions after successful login
+            localStorage.setItem("token","login-token");
+            localStorage.setItem("userId",response.data.id);
+            localStorage.setItem("userName", response.data.fullName); // Set user's full name in localStorage
+            console.log(localStorage);
+            console.log('Set UserId to', response.data.id);
+            console.log('Set UserName to', response.data.fullName);
+            navigation("/homePage");
         } catch (error) {
             console.error("Error logging in:", error);
             alert("Invalid email or password.");
@@ -51,7 +59,7 @@ const Login: React.FC = () => {
                                     required
                                 />
                             </div>
-                            <span className="iconpassword"><RiLockPasswordFill/></span>
+                            <span className="iconpassword"><RiLockPasswordFill /></span>
                             <div className="password">
                                 <input
                                     type="password"
@@ -64,7 +72,7 @@ const Login: React.FC = () => {
                             </div>
                         </div>
                         <div className="Remember-forget">
-                            <label><input type="checkbox"/>Remember me</label>
+                            <label><input type="checkbox" />Remember me</label>
                             <p> Don't have an account?
                                 <Link to="/ForgetPassword">
                                     <a >Forget Password ?</a>
@@ -89,3 +97,5 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+
+

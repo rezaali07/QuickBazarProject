@@ -1,10 +1,12 @@
 package com.example.quickbazar.Pojo;
 
+import com.example.quickbazar.Entity.User;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -14,6 +16,9 @@ public class ProductPojo {
 
 
     private Integer id;
+
+    @NotNull
+    private Long userId;
 
     @NotNull
     private Integer subCategoryId;
@@ -39,7 +44,10 @@ public class ProductPojo {
     @NotNull
     private String productDiscription;
 
-    private String productImage; //
+    @NotNull
+    private String phone;
+
+    private MultipartFile productImage; //
 
 
 }

@@ -1,6 +1,7 @@
 package com.example.quickbazar.Controller;
 
 import com.example.quickbazar.Entity.Product;
+import com.example.quickbazar.Entity.User;
 import com.example.quickbazar.Pojo.ProductPojo;
 import com.example.quickbazar.Service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -18,10 +19,13 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/save")
-    public String saveProduct(@RequestBody ProductPojo productPojo) throws IOException {
+    public String saveProduct(@RequestBody @ModelAttribute ProductPojo productPojo) throws IOException {
         productService.saveProduct(productPojo);
+
         return "Saved successfully";
     }
+
+
 
     @GetMapping("/findAll")
     public List<Product> getAllProducts() {
@@ -49,5 +53,12 @@ public class ProductController {
         return productService.findBySubCategoryId(id);
     }
 
+    @GetMapping("/findByUserId/{id}") // Change the mapping to avoid conflict
+    public List<Product> findByUserId(@PathVariable("id") User id) {
+        return productService.findByUserId(id);
+    }
+
 
 }
+
+

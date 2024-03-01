@@ -4,7 +4,7 @@ import { MdSpaceDashboard } from "react-icons/md";
 import { BiSolidCategoryAlt } from "react-icons/bi";
 import { TiHome } from "react-icons/ti";
 import { IoMdLogOut } from "react-icons/io";
-import { FaUserCog } from "react-icons/fa";
+import {FaRegUser, FaUserCog} from "react-icons/fa";
 import "../../css/adminSidebar.css";
 
 
@@ -75,12 +75,9 @@ const AdminSidebar: React.FC = () => {
             </div>
 
             <div className="sidebar-btn">
-                <button type="button">
-          <span>
-            <IoMdLogOut style={{ fontSize: "1.3rem", marginBottom: "-3px", marginRight: "3px" }} />
-          </span>
-                    Log Out
-                </button>
+                <Link to="/Login">
+                    <button><span><IoMdLogOut style={{ fontSize: "1.3rem", marginBottom: "-3px", marginRight: "3px" }} /></span> Log Out</button>
+                </Link>
             </div>
         </div>
     );

@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./pages/navbar/Navbar.tsx";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/homePage/HomePage.tsx";
 import Login from "./pages/Login.tsx";
 import RegistrationPage from "./pages/RegistrationPage.tsx";
@@ -13,7 +12,8 @@ import EditCategory from "./pages/admin/editCategory.tsx";
 import ManageSubCategory from "./pages/admin/ManageSubCategory.tsx";
 import ManageProduct from "./pages/admin/ManageProduct.tsx";
 import PostProduct from "./pages/PostProduct.tsx";
-import ProductCard from "./pages/homePage/ProductCard.tsx";
+import UserDashboard from "./pages/UserDashboard.tsx";
+
 
 function App() {
     const queryClient = new QueryClient();
@@ -22,7 +22,9 @@ function App() {
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/navbar" element={<Navbar />} />
+                    {/* Redirect to homepage when root path is accessed */}
+                    <Route path="/" element={<Navigate to="/homepage" />} />
+                    {/* Routes for different pages */}
                     <Route path="/homepage" element={<HomePage />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/registrationPage" element={<RegistrationPage />} />
@@ -35,9 +37,7 @@ function App() {
                     <Route path="/manageSubCategory" element={<ManageSubCategory />} />
                     <Route path="/manageProduct" element={<ManageProduct />} />
                     <Route path="/postProduct" element={<PostProduct />} />
-                    {/*<Route path="/productCard" element={<ProductCard productId={23} />} />*/}
-
-
+                    <Route path="/userDashboard" element={<UserDashboard />} />
                 </Routes>
             </BrowserRouter>
         </QueryClientProvider>

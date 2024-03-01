@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../../css/categoryList.css";
-import ProductCard from './ProductCard';
+
+import AllProduct from "./AllProduct.tsx";
 
 const CategoryList = () => {
     const [categories, setCategories] = useState([]);
@@ -20,7 +21,17 @@ const CategoryList = () => {
             }
         };
 
+        const fetchAllProducts = async () => {
+            try {
+                const response = await axios.get('http://localhost:8082/product/findAll');
+                setProducts(response.data);
+            } catch (error) {
+                console.error('Error fetching all products:', error);
+            }
+        };
+
         fetchCategories();
+        fetchAllProducts();
     }, []);
 
     const handleCategorySelect = async (categoryId) => {
@@ -78,7 +89,7 @@ const CategoryList = () => {
             </div>
             <div className="product-list">
                 {products.map(product => (
-                    <ProductCard key={product.id} productId={product.id} />
+                    <AllProduct key={product.id} productId={product.id} />
                 ))}
             </div>
         </div>

@@ -23,7 +23,7 @@ public class SubCategoryImpl implements SubCategoryService {
     private final CategoryRepo categoryRepo;
 
     @Override
-    public void saveSubCategory(SubCategoryPojo subCategoryPojo) throws IOException {
+    public void saveSubCategory(SubCategoryPojo subCategoryPojo)  {
         SubCategory subCategory;
         if (subCategoryPojo.getId() != null) {
             subCategory = subCategoryRepo.findById(subCategoryPojo.getId())
